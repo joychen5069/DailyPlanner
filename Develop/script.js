@@ -1,4 +1,4 @@
-//You need to display the current day
+//when you load the page, show current date
 var currentDay = moment().format('LLL');
 console.log(currentDay)
 $("#currentDay").append(currentDay);
@@ -11,21 +11,47 @@ console.log(currentHour)
 
 //need to create 9 hour schedule
 var hour24 = moment().format('H')
-var hour12 = moment().format('h')
-console.log(hour12)
 console.log(hour24)
-    //schedule can only be between 9am-5pm so 0900 to 1700
-    if (hour24 >= 17 && hour12 < 9) {
-        console.log("not within work hours")
-    }
-    else {
-        //run the code here
-    }
-    
+//schedule can only be between 9am-5pm so 0900 to 1700
+var hours = []
+for (var i = 9; i <= 17; i++) {
+    hours.push(i);
+    var index = hours
+}
+console.log(hours)
+var hoursTab = $("<td>").push(hours[0])
+console.log(hoursTab)
+var info = $("<td>").text()
+
+//build rows and columns
+var rows = $("<tr></tr>").text();
+$rows.addClass('row');
+var colHour = $("<td></td>").text();
+$colHour.addClass('hours');
+
+var displayHour = 0;
+      var amPM = "";
+      //if time is past noon, display time in PM
+      if (hour > 12) { 
+        displayHour = hour - 12;
+        amPM = "PM";
+      } 
+      //else display time for the morning, AM
+      else {
+        disPM = "AM";
+      }
 
 
-//if time is less than currnt hour, gray out
+
+
+
+
+//if time displayed is less than current hour, gray out
+if (hour24 < 17 && hour24 < 9 && hour24) {
+
+}
 //if time is within current hour, highlight
-//if time is greater than current hour, highlight in green
+//if time displayed is greater than current hour, highlight in green
 //when you click the save button, it saves the text to the local storage displays text
 
+//get information from local storage 
