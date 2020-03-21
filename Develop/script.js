@@ -25,20 +25,23 @@ var info = $("<td>").text()
 
 //build rows and columns
 var rows = $("<tr></tr>").text();
-$rows.addClass('row');
+$(rows).addClass('row');
 var colHour = $("<td></td>").text();
-$colHour.addClass('hours');
+$(colHour).addClass('hours');
+
+$(rows).append(colHour)
+$(".table").append(rows)
 
 var displayHour = 0;
       var amPM = "";
       //if time is past noon, display time in PM
-      if (hour > 12) { 
+      if (hour24 > 12) { 
         displayHour = hour - 12;
         amPM = "PM";
       } 
       //else display time for the morning, AM
       else {
-        disPM = "AM";
+        amPM = "AM";
       }
 
 
