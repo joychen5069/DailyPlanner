@@ -68,7 +68,7 @@ $(document).ready(function () {
         dailyNotes.attr('id', `input-${index}`);
         dailyNotes.attr('hour-index', index);
         dailyNotes.attr('type', 'text'); //make sure you can actually put text in it
-        dailyNotes.attr('class', 'dailyPlan');
+        dailyNotes.attr('class', 'dailyPlan col-12');
         //append dailyNotes to notesCol
         notesCol.append(dailyNotes)
         //make sure notes are in relation to the hours
@@ -93,34 +93,32 @@ $(document).ready(function () {
         // $('#planContainer').append($('.table'))
 
 
-        rowColor(hourBox, hours)
-    }
-    console.log(hour24)
+        rowColor(hourBox, hours);
 
 
 
-
-
-    //FORMAT TIME BLOCKS COLORS
-    //if time displayed is less than current hour, gray out
-    function rowColor(hourBox, hours) {
-        if (hours < hour24) {
-            $(hourBox).attr('class', 'past');
-        } //if time displayed is greater than current hour, highlight in green
-        else if (hours > hour24) {
-            $(hourBox).attr('class', 'future');
-        } //if time is within current hour, highlight
-        else {
-            $(hourBox).attr('class', 'present');
+        //FORMAT TIME BLOCKS COLORS
+        //if time displayed is less than current hour, gray out
+        function rowColor(hourBox, hours) {
+            if (hours < hour24) {
+                $(hourBox).attr('class', 'past');
+            } //if time displayed is greater than current hour, highlight in green
+            else if (hours > hour24) {
+                $(hourBox).attr('class', 'future');
+            } //if time is within current hour, highlight
+            else {
+                $(hourBox).attr('class', 'present');
+            }
         }
+
+        //when you click the save button, it saves the text to the local storage displays text
+     
+
+    
     }
-
-    //when you click the save button, it saves the text to the local storage displays text
-    $('#save-id').on('click', function () {
-        var plan = $('#`input-${index}`')
+    $('#saveid-9').on('click', function () {
+        console.log("click")
+       
     })
-
-    let savedPlans = JSON.parse(localStorage.getItem("savedPlans"));
-
     //get information from local storage 
 }) 
