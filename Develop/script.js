@@ -11,28 +11,32 @@ $(document).ready(function () {
     //create save icon variable to use later
     var save = "./Assets/save.png";
 
+    //create div to put things in
+    var planDiv = $('#planContainer');
+    //make sure its empty prior
+    planDiv.empty();
 
     //need to create 9 hour schedule
     var hour24 = moment().format('H')
-    console.log(hour24)
+    // console.log(hour24)
     //schedule can only be between 9am-5pm so 0900 to 1700
-    var hours = []
-    for (var i = 9; i < 18; i++) {
+    var hours = ''
+    for (var index = 9; index < 18; index++) {
         // hours.push(i);
         var index = hours - 9
 
         // console.log(hours)
 
         //build rows and time columns
-        var rows = $("<tr></tr>").text();
-        $(rows).addClass('row');
-        var colHour = $("<td></td>").text();
-        $(colHour).addClass('hours');
+        var rows = $("<tr></tr>");
+        // $(rows).addClass('row');
+        var hourCol = $("<td></td>");
+        // $(hourCol).addClass('hours');
 
         // var timeBox = $("<td></td>").text();
         // $(timeBox).addClass('timeBox');
 
-        // $(rows).append(colHour, timeBox);
+        // $(rows).append(hourCol, timeBox);
 
 
         var displayHour = 0;
@@ -50,21 +54,48 @@ $(document).ready(function () {
 
         //put time in hours spot
         var hourBox = $("<span></span>");
-        $(hourBox).addClass('timeBox');
+        hourBox.addClass('timeBox');
         var disHour = displayHour.toString();
-        // console.log(disHour)
+        console.log(disHour)
         // console.log(amPM)
         // console.log(disHour, amPM)
 
         //displayHour is working, however, displayHour amPM is not...
-        $(hourBox).attr('class','hoursBox');
-        $(hourBox).text(disHour + amPM);
+        hourBox.attr('class', 'hoursBox');
+        hourBox.text(disHour + amPM);
         // console.log(hourBox.text())
-        $(colHour).append($(hourBox))
+        hourCol.append(hourBox);
+        // $(rows).append(hourCol);
 
         // $(rows).append(hourBox.text());
 
         // $(".table").append(rows);
+        //build notes column, needs to be an input section so user can type
+        var notesCol = $('<td></td>');
+        var dailyNotes = $('<input>');
+
+        dailyNotes.attr('id', `input-${index}`);
+        dailyNotes.attr('hour-index', index);
+        dailyNotes.attr('type', 'text'); //make sure you can actually put text in it
+        dailyNotes.attr('class', 'dailyPlan');
+        //append dailyNotes to notesCol
+        notesCol.append(dailyNotes)
+        //make sure notes are in relation to the hours
+        dailyNotes.val("hello"); //TEST TEXT
+
+        //create save icon portion
+        var saveCol = $('<td></td>');
+        var saveDiv = $('<i>');
+        saveDiv.attr('id', `saveid-${index}`);
+        saveDiv.attr('save-id', index);
+        saveDiv.attr('class', 'saveBtn');
+
+        //append saveDiv to saveCol
+        saveCol.append(saveDiv);
+
+        //append everything to the row
+        rows.append(hourCol,notesCol,saveDiv);
+        $('.table').append(rows);
 
     }
 
@@ -73,19 +104,19 @@ $(document).ready(function () {
 
 
 
-//FORMAT TIME BLOCKS COLORS
+    //FORMAT TIME BLOCKS COLORS
     //if time displayed is less than current hour, gray out
-   function rowColor(hourRow,hours) {
-      if (hours < hour24) {
-          $(hourRow).attr('class','past');
-      }
-      else if (hours > hour24) {
-        $(hourRow).attr('class','future');
-      }
-      else {
-      $(hourRow).attr('class','present');
-      }
-   }
+    function rowColor(hourRow, hours) {
+        if (hours < hour24) {
+            $(hourRow).attr('class', 'past');
+        }
+        else if (hours > hour24) {
+            $(hourRow).attr('class', 'future');
+        }
+        else {
+            $(hourRow).attr('class', 'present');
+        }
+    }
     //if time is within current hour, highlight
     //if time displayed is greater than current hour, highlight in green
     //when you click the save button, it saves the text to the local storage displays text
