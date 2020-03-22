@@ -20,11 +20,11 @@ $(document).ready(function () {
     var hour24 = moment().format('H')
     // console.log(hour24)
     //schedule can only be between 9am-5pm so 0900 to 1700
-    var hours = []
+    var hours = ""
     for (var i = 9; i < 18; i++) {
         // hours.push(i);
         var index = i
-        hours.push(index)
+        hours = index
 
         // console.log(hours)
 
