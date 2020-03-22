@@ -20,10 +20,11 @@ $(document).ready(function () {
     var hour24 = moment().format('H')
     // console.log(hour24)
     //schedule can only be between 9am-5pm so 0900 to 1700
-    var hours = ''
-    for (var index = 9; index < 18; index++) {
+    var hours = []
+    for (var i = 9; i < 18; i++) {
         // hours.push(i);
-        var index = hours - 9
+        var index = i
+        hours.push(index)
 
         // console.log(hours)
 
@@ -94,11 +95,12 @@ $(document).ready(function () {
         saveCol.append(saveDiv);
 
         //append everything to the row
-        rows.append(hourCol,notesCol,saveDiv);
+        rows.append(hours,notesCol,saveDiv);
         $('.table').append(rows);
+        $('#planContainer').append($('.table'))
 
     }
-
+console.log(hours)
 
 
 
