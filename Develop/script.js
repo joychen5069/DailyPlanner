@@ -5,8 +5,8 @@ $(document).ready(function () {
     $("#currentDay").append(currentDay);
 
     //current hour-round down
-    var currentHour = moment().format('LT');
-    console.log(currentHour)
+    // var currentHour = moment().format('LT');
+    // console.log(currentHour)
 
     //create save icon variable to use later
     var save = "./Assets/save.png";
@@ -14,7 +14,7 @@ $(document).ready(function () {
     //create div to put things in
     var planDiv = $('#planContainer');
     //make sure its empty prior
-    planDiv.empty();
+    // planDiv.empty();
 
     //need to create 9 hour schedule
     var hour24 = moment().format('H')
@@ -96,8 +96,9 @@ $(document).ready(function () {
 
         //append everything to the row
         rows.append(hours,notesCol,saveDiv);
+        console.log(rows)
         $('.table').append(rows);
-        $('#planContainer').append($('.table'))
+        // $('#planContainer').append($('.table'))
 
     }
 console.log(hours)
