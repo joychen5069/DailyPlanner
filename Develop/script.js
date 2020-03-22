@@ -1,4 +1,7 @@
 $(document).ready(function () {
+
+   
+
     //when you load the page, show current date
     var currentDay = moment().format('LLL');
     console.log(currentDay)
@@ -67,7 +70,6 @@ $(document).ready(function () {
         dailyNotes.attr('hour-index', index);
         dailyNotes.attr('type', 'text'); //make sure you can actually put text in it
         dailyNotes.attr('class', 'dailyPlan col-12');
-        //append dailyNotes to notesCol
         notesCol.append(dailyNotes);
         //make sure notes are in relation to the hours
         // dailyNotes.val(""); //TEST TEXT
@@ -115,7 +117,7 @@ $(document).ready(function () {
 
 
     }
-
+    getStored()
     //save buttons--find out how to shorten this
 
     $('#saveid-9').on("click", function () {
@@ -130,10 +132,10 @@ $(document).ready(function () {
         var storedPl = localStorage.getItem('plan9')
         console.log(storedPl)
         // document.getElementById("input-9").textContent = storedPl;
-        $('#input-9').text(storedPl);
+        $('#input-9').val(storedPl);
     }
 
-getStored()
+
 
     //get information from local storage 
 }) 
