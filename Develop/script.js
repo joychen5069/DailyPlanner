@@ -11,9 +11,11 @@ $(document).ready(function () {
 
 
     //schedule can only be between 9am-5pm so 0900 to 1700
-    var hourMil = moment().format('HH'); //current miltary time
-    
-    // hourMil = 12 use this to test to make sure code works
+    //current miltary time
+    var hourMil = moment().format('HH');
+
+    //use this to test to make sure code works
+    hourMil = 12
     console.log(hourMil)
     var hours = ""
     for (var i = 9; i < 18; i++) {
@@ -66,17 +68,7 @@ $(document).ready(function () {
         console.log(hourCol.text())
 
         console.log(index)
-        if (i < hourMil) {
-            $(hourCol).attr('class', 'past');
-            console.log('this is in the past')
-        } //if time displayed is greater than current hour, highlight in green
-        else if (i> hourMil) {
-            $(hourCol).attr('class', 'future');
-        } //if time is within current hour, highlight
-        else {
-            $(hourCol).attr('class', 'present');
-        }
-
+        
         // $(rows).append(hourBox.text());
 
         // $(".table").append(rows);
@@ -99,61 +91,63 @@ $(document).ready(function () {
         saveDiv.attr('value', index);
         saveDiv.attr('save-id', index);
         saveDiv.attr('class', 'btn saveBtn');
-        // saveDiv.attr('onClick','setStored(this)')
         saveDiv.attr('src', '../Assets/save.png')
 
 
         //append saveDiv to saveCol
         saveCol.append(saveDiv);
 
+        if (i < hourMil) {
+            $(hourCol).attr('class', 'past');
+            $(notesCol).attr('class', 'past');
+            console.log('this is in the past')
+        } //if time displayed is greater than current hour, highlight in green
+        else if (i > hourMil) {
+            $(hourCol).attr('class', 'future');
+            $(notesCol).attr('class', 'future');
+        } //if time is within current hour, highlight
+        else {
+            $(hourCol).attr('class', 'present');
+            $(notesCol).attr('class', 'present')
+        }
+
+
+
         //append everything to the row
         rows.append(hourCol, notesCol, saveDiv);
         // console.log(rows)
         $('.table').append(rows);
-     
+
+
 
     }
+
+    for (let i = 1; i < 13; i++) {
+
         getStored();
-        //save buttons--find out how to shorten this
-        // console.log(disHour)
-        // console.log(this.toString(disHour))
-        $('#saveid-9').on("click", function () {
-            console.log(this)
-            console.log("click 9");
-            var plan9 = $('#input-9').val();
-            var toString = JSON.stringify(plan9)
-            localStorage.setItem('plan9', plan9)
 
-        })
-        function getStored() {
-            var storedPl = localStorage.getItem('plan9')
-            // console.log(storedPl)
-            // document.getElementById("input-9").textContent = storedPl;
-            $('#input-9').val(storedPl);
-        }
-
-       for (let i = 1; i < 13; i++) {
-           
-           
-       
         //try to simplify it all
-        $('#saveid-'+ i).on("click", function () {
+        $('#saveid-' + i).on("click", function () {
             console.log(this)
             console.log("click " + i);
             var plan = $('#input-' + i).val();
-            var toString = JSON.stringify(plan[i])
-            localStorage.setItem('plan'+ i, toString)
+            localStorage.setItem('plan' + i, plan)
 
         })
 
         //get information from local storage 
         function getStored() {
-            var storedPl = localStorage.getItem('plan9')
-            // console.log(storedPl)
-            // document.getElementById("input-9").textContent = storedPl;
-            $('#input-9').val(storedPl);
+            var storedPl = localStorage.getItem('plan' + i)
+            //if nothing originally, do not display any text
+            if (storedPl === 'undefined') {
+                var nothing = ""
+                $('#input-' + i).val(nothing)
+            }
+            else {
+            $('#input-' + i).val(storedPl);
+            }
         }
-    
+
     }
     // rowColor(hourCol, hours)
 })
