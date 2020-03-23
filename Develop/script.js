@@ -48,19 +48,17 @@ $(document).ready(function () {
 
         //build time column
         var hourCol = $("<td></td>");
-        hourCol.attr('class', 'hoursBox');
-        hourCol.attr('id', 'index')
-        // hourCol.addClass('hours');
+        hourCol.attr('class', 'time');
+
 
         //put time in hours spot
         var hourBox = $("<span></span>");
-        hourBox.addClass('timeBox');
+        hourBox.attr('class', 'time');
         var disHour = displayHour.toString();
 
         // console.log(disHour, amPM)
 
         //displayHour is working, however, displayHour amPM is not...
-        hourBox.attr('class', 'hoursBox');
         hourBox.text(disHour + amPM);
         // console.log(hourBox.text())
         hourCol.append(hourBox.text());
@@ -68,7 +66,7 @@ $(document).ready(function () {
         console.log(hourCol.text())
 
         console.log(index)
-        
+
         // $(rows).append(hourBox.text());
 
         // $(".table").append(rows);
@@ -144,7 +142,7 @@ $(document).ready(function () {
                 $('#input-' + i).val(nothing)
             }
             else {
-            $('#input-' + i).val(storedPl);
+                $('#input-' + i).val(storedPl);
             }
         }
 

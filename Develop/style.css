@@ -23,11 +23,15 @@ textarea{
   background-color: transparent;
   color: black;
   border-radius: 0;
-  border-bottom: 10px solid black;
+  border-bottom: 5px solid black;
 }
 
 .description{
   white-space: pre-wrap;
+}
+
+.display-3 {
+  font-size: 50px;
 }
 
 .time-block{
@@ -48,25 +52,25 @@ textarea{
 }
 
 .past {
-  background-color: #b70000;
+  background-color: #636363;
   color: white;
 }
 
 .present {
-  background-color: #ff6961;
-  color: white;
+  background-color: #e7ff61;
+  color: rgb(0, 0, 0);
 }
 
 .future {
-  background-color: #00ff00;
-  color: white;
+  background-color: #00ff0090;
+  color: rgb(0, 0, 0);
 }
 
 .saveBtn {
   border-left: 1px solid black;
   border-top-right-radius: 15px;
   border-bottom-right-radius: 15px;
-  background-color: rgba(6, 175, 213, 0);
+  background-color: #ffffff;
   color: rgba(255, 255, 255, 0);
 }
 
