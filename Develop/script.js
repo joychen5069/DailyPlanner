@@ -48,7 +48,8 @@ $(document).ready(function () {
 
         //build time column
         var hourCol = $("<td></td>");
-        hourCol.attr('class', 'time');
+        $(hourCol).attr('class', 'time');
+        // hourCol.addClass('time');
 
 
         //put time in hours spot
@@ -89,7 +90,7 @@ $(document).ready(function () {
         saveDiv.attr('value', index);
         saveDiv.attr('save-id', index);
         saveDiv.attr('class', 'btn saveBtn');
-        saveDiv.attr('src', '../Assets/save.png')
+        saveDiv.attr('src', './Assets/save.png')
 
 
         //append saveDiv to saveCol
