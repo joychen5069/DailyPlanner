@@ -13,7 +13,7 @@ $(document).ready(function () {
     //schedule can only be between 9am-5pm so 0900 to 1700
     var hourMil = moment().format('HH'); //current miltary time
     
-    hourMil = 12
+    // hourMil = 12 use this to test to make sure code works
     console.log(hourMil)
     var hours = ""
     for (var i = 9; i < 18; i++) {
@@ -96,9 +96,10 @@ $(document).ready(function () {
         var saveCol = $('<td></td>');
         var saveDiv = $('<img>');
         saveDiv.attr('id', `saveid-${index}`);
-        saveDiv.attr('value', index)
+        saveDiv.attr('value', index);
         saveDiv.attr('save-id', index);
         saveDiv.attr('class', 'btn saveBtn');
+        // saveDiv.attr('onClick','setStored(this)')
         saveDiv.attr('src', '../Assets/save.png')
 
 
@@ -109,37 +110,19 @@ $(document).ready(function () {
         rows.append(hourCol, notesCol, saveDiv);
         // console.log(rows)
         $('.table').append(rows);
-        // $('#planContainer').append($('.table'))
+     
 
-
-        // rowColor(hourBox, hours);
-
-
-
-        // //FORMAT TIME BLOCKS COLORS
-        // // if time displayed is less than current hour, gray out
-        // function rowColor(hours) {
-        //     for (var i = 9; i < 18; i++) {
-
-        //     }
-        //     console.log(hours)
-
-        // }
-
-        //when you click the save button, it saves the text to the local storage displays text
-
-
-
-
+    }
         getStored();
         //save buttons--find out how to shorten this
         // console.log(disHour)
         // console.log(this.toString(disHour))
-        $('#saveid-' + disHour).on("click", function () {
-            console.log("click " + this.disHour);
-            var planindex = $('#input-' + index).val();
-            // var toString = JSON.stringify(plan9)
-            // localStorage.setItem('plan9', plan9)
+        $('#saveid-9').on("click", function () {
+            console.log(this)
+            console.log("click 9");
+            var plan9 = $('#input-9').val();
+            var toString = JSON.stringify(plan9)
+            localStorage.setItem('plan9', plan9)
 
         })
         //get information from local storage 
@@ -149,7 +132,8 @@ $(document).ready(function () {
             // document.getElementById("input-9").textContent = storedPl;
             $('#input-9').val(storedPl);
         }
-    }
+    
+   
     // rowColor(hourCol, hours)
 })
 
