@@ -125,6 +125,27 @@ $(document).ready(function () {
             localStorage.setItem('plan9', plan9)
 
         })
+        function getStored() {
+            var storedPl = localStorage.getItem('plan9')
+            // console.log(storedPl)
+            // document.getElementById("input-9").textContent = storedPl;
+            $('#input-9').val(storedPl);
+        }
+
+       for (let i = 1; i < 13; i++) {
+           
+           
+       
+        //try to simplify it all
+        $('#saveid-'+ i).on("click", function () {
+            console.log(this)
+            console.log("click " + i);
+            var plan = $('#input-' + i).val();
+            var toString = JSON.stringify(plan[i])
+            localStorage.setItem('plan'+ i, toString)
+
+        })
+
         //get information from local storage 
         function getStored() {
             var storedPl = localStorage.getItem('plan9')
@@ -133,7 +154,7 @@ $(document).ready(function () {
             $('#input-9').val(storedPl);
         }
     
-   
+    }
     // rowColor(hourCol, hours)
 })
 
