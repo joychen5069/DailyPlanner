@@ -5,6 +5,10 @@ body {
   background-color: #3e9fa9;
 }
 
+.dailyPlan {
+  color: #000000;
+}
+
 textarea{
   background: transparent;
   border: none;
@@ -44,7 +48,7 @@ textarea{
 }
 
 .past {
-  background-color: #d3d3d3;
+  background-color: #b70000;
   color: white;
 }
 
@@ -54,7 +58,7 @@ textarea{
 }
 
 .future {
-  background-color: #77dd77;
+  background-color: #00ff00;
   color: white;
 }
 
@@ -62,8 +66,8 @@ textarea{
   border-left: 1px solid black;
   border-top-right-radius: 15px;
   border-bottom-right-radius: 15px;
-  background-color: #06AED5;
-  color: white;
+  background-color: rgba(6, 175, 213, 0);
+  color: rgba(255, 255, 255, 0);
 }
 
 .saveBtn i:hover {
