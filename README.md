@@ -9,4 +9,4 @@ This agenda is mostly powered by jquery and your notes are stored in your local 
 # The display
 Your agenda should look like the image below. Hope you enjoy using it!
 
-![Daily-Planner] ()
+<img src="/Assets/Daily-Planner-Final.png"  alt="Daily Planner Image" width="100%" height="auto">
